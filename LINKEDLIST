@@ -1,0 +1,52 @@
+#include <iostream>
+using namespace std;
+
+int arr[5][4];
+
+int main(){
+    int temp[5],tinggi=0,rendah=0,jumlah=0;
+    float rata[4];
+
+    //input nilai array
+    for(int i=0;i<5;i++){
+        cout<<"Masukan Nilai mahasiswa ke-"<<i+1<<endl;
+        for(int j=0;j<4;j++){
+            switch(j){
+                case 1:{cout<<"Masukan nilai tugas : ";
+                    cin>>arr[i][j];
+                };break;
+                case 2:{cout<<"Masukan nilai kuis : ";
+                    cin>>arr[i][j];
+                };break;
+                case 3:{
+                    cout<<"Masukan nilai UTS : ";
+                     cin>>arr[i][j];
+                };break;
+                case 4:{cout<<"Masukan nilai praktikum : ";
+                     cin>>arr[i][j];
+                };break;
+            };
+
+            //untuk menghitung total nilai tiap mahasiswa dulu
+            temp[j]=temp[j]+arr[i][j];
+            rata[i]=temp[j]/4;
+
+            //untuk mencari nilai rata" tertinggi dari 5 mahasiswa tersebut
+            if(rata[i]>tinggi){
+                tinggi=rata[i];
+            };
+            //untuk mencari nilai rata" terendah dari 5 mahasiswa tersebut
+            if(rata[i]<tinggi){
+                rendah=rata[i];
+            };
+        if(rata[i]==75){
+            jumlah++;
+        };
+        };
+        //output rata" nilai tiap siswanya  
+        cout<<"rata-rata nilai mahasiswa "<<i+1<<"adalah :"<<rata[i]<<endl;
+        cout<<"rata-rata tertinggi mahasiswa "<<tinggi<<endl;
+        cout<<"rata-rata terendah mahasiswa "<<rendah<<endl;
+        cout<<"jumlah mahasiswa yang memiliki rata-rata 75 : "<<jumlah<<endl;
+    };
+}
